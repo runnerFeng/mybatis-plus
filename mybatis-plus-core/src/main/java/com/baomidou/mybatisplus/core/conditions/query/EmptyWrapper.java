@@ -1,12 +1,12 @@
 package com.baomidou.mybatisplus.core.conditions.query;
 
+import com.baomidou.mybatisplus.core.conditions.ISqlSegment;
+import com.baomidou.mybatisplus.core.conditions.segments.MergeSegments;
+
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import com.baomidou.mybatisplus.core.conditions.ISqlSegment;
-import com.baomidou.mybatisplus.core.conditions.segments.MergeSegments;
 
 /**
  * <p>
@@ -60,13 +60,16 @@ public class EmptyWrapper<T> extends QueryWrapper<T> implements Serializable {
         return true;
     }
 
+    @Override
     public EmptyWrapper<T> setEntity(T entity) {
         return this;
     }
 
+    @Override
     protected void initEntityClass() {
     }
 
+    @Override
     protected Class<T> getCheckEntityClass() {
         throw new UnsupportedOperationException();
     }
